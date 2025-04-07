@@ -39,4 +39,8 @@ public class Project {
     public void setState(ProjectState state) {
         this.state = state;
     }
+
+    public String getNameProject() {
+        return nameProject;
+    }
 }
