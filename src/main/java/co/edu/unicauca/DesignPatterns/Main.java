@@ -2,6 +2,7 @@ package co.edu.unicauca.DesignPatterns;
 
 import co.edu.unicauca.DesignPatterns.TemplateMethod.BusinessEvaluator;
 import co.edu.unicauca.DesignPatterns.TemplateMethod.TechnicalEvaluator;
+import co.edu.unicauca.DesignPatterns.decorator.PriorityProject;
 import co.edu.unicauca.DesignPatterns.entities.Project;
 
 public class Main {
@@ -25,5 +26,11 @@ public class Main {
         technicalEvaluator.evaluate(project);
         BusinessEvaluator businessEvaluator = new BusinessEvaluator();
         businessEvaluator.evaluate(project);
+        //-------------------------------------------
+        //Patron decorator
+        System.out.println("DECORATOR PATTERN");
+        PriorityProject priorityProject = new PriorityProject(project);
+        System.out.println("Project description: " + priorityProject.getNameProject());
+        //-------------------------------------------
     }
 }
