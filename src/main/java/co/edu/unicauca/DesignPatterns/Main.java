@@ -7,6 +7,7 @@ import co.edu.unicauca.DesignPatterns.adapter.IProjectDataProvider;
 import co.edu.unicauca.DesignPatterns.adapter.ProjectAdapter;
 import co.edu.unicauca.DesignPatterns.decorator.PriorityProject;
 import co.edu.unicauca.DesignPatterns.entities.Project;
+import co.edu.unicauca.DesignPatterns.facade.PlatformFacade;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,5 +42,11 @@ public class Main {
         IProjectDataProvider adapter = new ProjectAdapter(externalService);
         Project adaptedProject = adapter.getProject();
         System.out.println("Project created from external service: " + adaptedProject.getNameProject());
+        //____________________________________________
+        //Patron Facade
+        System.out.println("FACADE PATTERN");
+        PlatformFacade platform = new PlatformFacade();
+        platform.manageProject(project);
     }
-}
+
+    }
