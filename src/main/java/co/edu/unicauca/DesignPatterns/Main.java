@@ -2,6 +2,9 @@ package co.edu.unicauca.DesignPatterns;
 
 import co.edu.unicauca.DesignPatterns.TemplateMethod.BusinessEvaluator;
 import co.edu.unicauca.DesignPatterns.TemplateMethod.TechnicalEvaluator;
+import co.edu.unicauca.DesignPatterns.adapter.ExternalProjectService;
+import co.edu.unicauca.DesignPatterns.adapter.IProjectDataProvider;
+import co.edu.unicauca.DesignPatterns.adapter.ProjectAdapter;
 import co.edu.unicauca.DesignPatterns.decorator.PriorityProject;
 import co.edu.unicauca.DesignPatterns.entities.Project;
 
@@ -32,5 +35,11 @@ public class Main {
         PriorityProject priorityProject = new PriorityProject(project);
         System.out.println("Project description: " + priorityProject.getNameProject());
         //-------------------------------------------
+        //Patron Adapter
+        System.out.println("ADAPTER PATTERN");
+        ExternalProjectService externalService = new ExternalProjectService();
+        IProjectDataProvider adapter = new ProjectAdapter(externalService);
+        Project adaptedProject = adapter.getProject();
+        System.out.println("Project created from external service: " + adaptedProject.getNameProject());
     }
 }
